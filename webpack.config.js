@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     //where our bundling of react components start
-    main: path.resolve(__dirname, './client/index.js'),
+    main: path.resolve(__dirname, './client/index.ts'),
   },
   output: {
     //name the file 
@@ -36,6 +36,11 @@ module.exports = {
       {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
     ],
   },
